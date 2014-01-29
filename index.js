@@ -35,6 +35,4 @@ function extractSection(text,lines) {
   return [];  
 }
 
-module.exports = {
-  parseLog: parseLog
-};
+exports.parseLog = parseLog;

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha tests/index.js --reporter spec",
+    "test": "./node_modules/mocha/bin/mocha tests --reporter spec",
     "lint": "./node_modules/jshint/bin/jshint index.js"
   },
   "repository": {

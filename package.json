@@ -2,6 +2,10 @@
   "name": "qunit-parser",
   "version": "0.0.1",
   "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha tests/index.js --reporter spec",
+    "lint": "./node_modules/jshint/bin/jshint index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/aaronshaf/qunit-parser.git"
@@ -11,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/aaronshaf/qunit-parser/issues"
   },
-  "homepage": "https://github.com/aaronshaf/qunit-parser"
+  "homepage": "https://github.com/aaronshaf/qunit-parser",
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "jshint": "~2.4.3"
+  }
 }

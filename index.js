@@ -18,23 +18,23 @@ function extractSection(text,lines) {
   return [];  
 }
 
+function trim(string) { return String.prototype.trim.call(string); }
+
 function parseLog(value) {
   var data = {};
   
   var lines = value.match(/[^\r\n]+/g);
   
   var traceLines = extractTrace(lines);
-  if(traceLines) data.stack = traceLines.map(function(line){
-    return line.trim()
-  }).join("\n");
+  if(traceLines) data.stack = traceLines.map(trim).join("\n")
   
   var actual = extractSection('Actual: ',lines);
-  if(actual.length) data.actual = actual;
+  if(actual.length) data.actual = actual.map(trim).join("\n");
   
   var expected = extractSection('Expected: ',lines);
-  if(expected.length) data.expected = expected;
+  if(expected.length) data.expected = expected.map(trim).join("\n");
   
-  if(lines.length) data.description = lines;
+  if(lines.length) data.description = lines.map(trim).join("\n");
   
   return data;
 }

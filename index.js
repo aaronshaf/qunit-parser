@@ -1,11 +1,11 @@
 /* global exports */
 
-function extractTrace(lines) {
-  var traceLines = [];
+function extractBacktrace(lines) {
+  var backtraceLines = [];
   while(lines.length && lines[lines.length - 1].trim().indexOf('at ') === 0) {
-    traceLines.push(lines.pop());
+    backtraceLines.push(lines.pop());
   }
-  return traceLines;
+  return backtraceLines;
 }
 
 function extractSection(text,lines) {
@@ -21,12 +21,13 @@ function extractSection(text,lines) {
 function trim(string) { return String.prototype.trim.call(string); }
 
 function parseLog(value) {
+  if(typeof value === 'undefined') { return {}; }
   var data = {};
   
   var lines = value.match(/[^\r\n]+/g);
   
-  var traceLines = extractTrace(lines);
-  if(traceLines) data.stack = traceLines.map(trim).join("\n")
+  var backtraceLines = extractBacktrace(lines);
+  if(backtraceLines) data.backtrace = backtraceLines.map(trim).join("\n")
   
   var actual = extractSection('Actual: ',lines);
   if(actual.length) data.actual = actual.map(trim).join("\n");

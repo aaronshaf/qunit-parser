@@ -26,7 +26,7 @@ Actual: 0\n\
     assert.equal(result.expected,"1");
     assert.equal(result.actual,"0");
     assert.equal(result.description,"Lorem ipsum dolor sit amet");
-    assert.equal(result.stack, expectedTrace);
+    assert.equal(result.backtrace, expectedTrace);
   });
 
   it('should correctly parse log containing description and stack trace (no expected or actual)',function() {
@@ -43,7 +43,7 @@ Lorem ipsum dolor sit amet\n\
     assert.equal(result.expected,undefined);
     assert.equal(result.actual,undefined);
     assert.equal(result.description,"Lorem ipsum dolor sit amet");
-    assert.equal(result.stack, expectedTrace);
+    assert.equal(result.backtrace, expectedTrace);
   });
 
   it('should correctly parse log containing stack trace only',function() {
@@ -59,6 +59,6 @@ Lorem ipsum dolor sit amet\n\
     assert.equal(result.expected,undefined);
     assert.equal(result.actual,undefined);
     assert.equal(result.description,undefined);
-    assert.equal(result.stack, expectedTrace);
+    assert.equal(result.backtrace, expectedTrace);
   });
 });

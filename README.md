@@ -1,2 +1,5 @@
-qunit-parser
-============
+```
+npm install
+npm lint
+npm test
+```
